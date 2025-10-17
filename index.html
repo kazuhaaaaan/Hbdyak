@@ -75,7 +75,6 @@ body {
   50% { border-color: transparent; }
 }
 
-/* Remove cursor after done typing */
 .greeting.done {
   border-right: none;
 }
@@ -250,12 +249,23 @@ body {
   50% { transform: translate(-50%, -10px); }
 }
 
-/* Responsive */
+/* Responsive - tetap sejajar kiri kanan */
 @media (max-width: 600px) {
-  .photo-wrapper { flex-direction: column; gap: 10px; }
-  .side-video { width: 100px; height: 100px; }
-  .birthday-photo { width: 130px; height: 130px; }
-  .greeting { font-size: 2em; }
+  .photo-wrapper {
+    flex-direction: row; /* tetap sejajar kiri–kanan */
+    gap: 8px;
+  }
+  .side-video {
+    width: 70px;
+    height: 70px;
+  }
+  .birthday-photo {
+    width: 110px;
+    height: 110px;
+  }
+  .greeting {
+    font-size: 1.6em;
+  }
 }
 </style>
 </head>
@@ -271,7 +281,7 @@ body {
     <img src="./gambar.jpg" alt="Birthday Person" class="birthday-photo">
 
     <video class="side-video right-video" autoplay loop muted playsinline>
-      <source src="neko1.mp4" type="video/mp4">
+      <source src="./neko1.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -294,7 +304,6 @@ function toggleMusic() {
   }
 }
 
-// Remove cursor after typing animation ends
 const greeting = document.querySelector('.greeting');
 greeting.addEventListener('animationend', () => {
   greeting.classList.add('done');
